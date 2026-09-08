@@ -1545,6 +1545,17 @@ h2{
     }
 }
 
+
+/* ENTRY BUTTON + FIREWORKS */
+.enterButton{margin-top:8px;min-width:190px;font-weight:600;letter-spacing:.3px}
+.entryHint{margin-top:14px;color:#cfc3d1;font-size:13px}
+#fireworks{position:fixed;inset:0;z-index:10000;pointer-events:none;overflow:hidden}
+.fireworkBurst{position:absolute;width:8px;height:8px;border-radius:50%;background:#ffd76a;box-shadow:0 0 14px 4px #ff71b8;animation:burstFade 1.8s ease-out forwards}
+.fireworkParticle{position:absolute;left:0;top:0;width:5px;height:16px;border-radius:50%;background:var(--spark-color,#ffd76a);box-shadow:0 0 10px 2px var(--spark-color,#ffd76a);transform-origin:50% 100%;animation:sparkFly 1.45s cubic-bezier(.12,.72,.25,1) forwards}
+@keyframes sparkFly{0%{transform:rotate(var(--angle)) translateY(0) scale(1);opacity:1}72%{opacity:1}100%{transform:rotate(var(--angle)) translateY(var(--distance)) scale(.05);opacity:0}}
+@keyframes burstFade{0%{transform:scale(.4);opacity:0}15%{transform:scale(1.2);opacity:1}100%{transform:scale(2.4);opacity:0}}
+@media (prefers-reduced-motion:reduce){.fireworkParticle,.fireworkBurst{animation-duration:.5s}}
+
 </style>
 </head>
 
@@ -1553,53 +1564,71 @@ h2{
 
 
 <!-- =========================================================
-     PASSWORD
+     WELCOME / ENTRY
 ========================================================= -->
-
-<div id="passwordScreen">
-
+<div id="passwordScreen" aria-label="Welcome screen">
     <div class="passwordBox">
-
-        <div class="lockIcon">
-            🔐
-        </div>
-
-        <div class="eyebrow">
-            A Little Surprise
-        </div>
-
-        <h1>
-            Hey Sanjida… ❤️
-        </h1>
-
+        <div class="lockIcon" aria-hidden="true">✨</div>
+        <div class="eyebrow">A Little Surprise</div>
+        <h1>Hey Sanjida… ❤️</h1>
         <p>
             তোমার জন্য ছোট্ট একটা Birthday Surprise
             তৈরি করা হয়েছে। 🌸
             <br><br>
-            আগে Secret Password দিয়ে
-            এই দরজাটা খুলতে হবে।
+            প্রস্তুত হলে নিচের বাটনে ট্যাপ করে
+            Surprise-টি দেখতে শুরু করো।
         </p>
+        <button class="btn enterButton" id="enterButton" type="button">
+            প্রবেশ করুন ❤️
+        </button>
+        <div class="entryHint">একটি ছোট্ট জাদুকরী মুহূর্ত অপেক্ষা করছে</div>
+    </div>
+</div>
+<div id="fireworks" aria-hidden="true"></div>
 
-        <input
-            id="password"
-            class="passwordInput"
-            type="password"
-            maxlength="5"
-            placeholder="•••••"
-        >
+<script>
+(() => {
+    const welcomeScreen = document.getElementById("passwordScreen");
+    const enterButton = document.getElementById("enterButton");
+    const fireworks = document.getElementById("fireworks");
+    const colors = ["#ffd76a", "#ff70b5", "#b78cff", "#7ee7ff", "#ffffff"];
 
-        <br>
+    function createFirework(x, y, delay = 0) {
+        window.setTimeout(() => {
+            const burst = document.createElement("div");
+            burst.className = "fireworkBurst";
+            burst.style.left = `${x}px`;
+            burst.style.top = `${y}px`;
+            fireworks.appendChild(burst);
+            const particleCount = 30;
+            for (let i = 0; i < particleCount; i += 1) {
+                const particle = document.createElement("span");
+                particle.className = "fireworkParticle";
+                particle.style.setProperty("--angle", `${(360 / particleCount) * i}deg`);
+                particle.style.setProperty("--distance", `${75 + Math.random() * 115}px`);
+                particle.style.setProperty("--spark-color", colors[Math.floor(Math.random() * colors.length)]);
+                burst.appendChild(particle);
+            }
+            window.setTimeout(() => burst.remove(), 2000);
+        }, delay);
+    }
 
-        <button
-            class="btn"
-       unlockButton.addEventListener("click", unlock);
-    passwordInput.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") unlock();
+    function launchFireworks() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        const points = [[.18,.28],[.50,.20],[.82,.30],[.32,.46],[.70,.48],[.50,.35]];
+        points.forEach(([x, y], index) => createFirework(width * x, height * y, index * 180));
+    }
+
+    enterButton.addEventListener("click", () => {
+        enterButton.disabled = true;
+        launchFireworks();
+        document.body.classList.remove("locked");
+        welcomeScreen.classList.add("hide");
+        window.setTimeout(() => welcomeScreen.remove(), 1100);
+        window.setTimeout(() => fireworks.replaceChildren(), 2800);
     });
-
-    passwordInput.focus();
 })();
 </script>
-
 </body>
-        </html>
+</html>                                                                                                       
