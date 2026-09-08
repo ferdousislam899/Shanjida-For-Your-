@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sanjida ❤️ — A Little Surprise</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Hind Siliguri','Poppins',sans-serif;
+    background:#050509;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-5;
+    background:
+      radial-gradient(circle at 20% 20%,rgba(255,70,130,.12),transparent 30%),
+      radial-gradient(circle at 80% 70%,rgba(150,70,255,.12),transparent 30%),
+      linear-gradient(135deg,#030305,#0b0710,#050509);
+}
+
+/* Stars */
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:.15;transform:scale(.7)}
+    50%{opacity:1;transform:scale(1.5)}
+}
+
+/* Hearts */
+.heart{
+    position:fixed;
+    bottom:-30px;
+    color:#ff6f9f;
+    font-size:20px;
+    pointer-events:none;
+    z-index:3;
+    animation:floatHeart linear forwards;
+}
+
+@keyframes floatHeart{
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:0;
+    }
+    15%{opacity:.9}
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* =========================
+   PASSWORD SCREEN
+========================= */
+
+#lockScreen{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:25px;
+    background:
+      radial-gradient(circle at center,rgba(130,20,70,.22),transparent 40%),
+      #030305;
+    transition:1s ease;
+}
+
+.lockBox{
+    width:min(430px,100%);
+    padding:38px 25px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:30px;
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(20px);
+    box-shadow:0 30px 100px rgba(0,0,0,.6);
+}
+
+.lockIcon{
+    width:105px;
+    height:105px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:linear-gradient(145deg,#ff3d81,#9d3cff);
+    font-size:48px;
+    box-shadow:
+      0 0 30px rgba(255,60,130,.35),
+      0 0 80px rgba(157,60,255,.15);
+    animation:lockFloat 3s ease-in-out infinite;
+}
+
+@keyframes lockFloat{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-10px)}
+}
+
+.lockBox h1{
+    margin-top:25px;
+    font-family:'Great Vibes',cursive;
+    font-size:43px;
+}
+
+.lockBox p{
+    margin:10px 0 25px;
+    color:#cfc7d2;
+    line-height:1.8;
+}
+
+.passwordInput{
+    width:100%;
+    padding:15px 18px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.07);
+    color:white;
+    outline:none;
+    text-align:center;
+    font-size:18px;
+    letter-spacing:5px;
+}
+
+.mainBtn{
+    margin-top:18px;
+    border:0;
+    padding:14px 25px;
+    border-radius:30px;
+    background:linear-gradient(90deg,#ff3d81,#9b45ff);
+    color:#fff;
+    font-size:16px;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(255,50,130,.25);
+    transition:.3s;
+}
+
+.mainBtn:hover{
+    transform:translateY(-3px) scale(1.03);
+}
+
+.error{
+    height:22px;
+    color:#ff779d;
+    margin-top:10px;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+#website{
+    display:none;
+}
+
+section{
+    min-height:100vh;
+    padding:100px 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.container{
+    width:min(1050px,100%);
+    margin:auto;
+}
+
+.center{
+    text-align:center;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    overflow:hidden;
+}
+
+.heroContent{
+    text-align:center;
+    position:relative;
+    z-index:2;
+}
+
+.smallText{
+    color:#d7ced9;
+    letter-spacing:3px;
+    font-size:13px;
+    text-transform:uppercase;
+}
+
+.hero h1{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(65px,13vw,125px);
+    line-height:1;
+    margin:18px 0;
+    background:linear-gradient(90deg,#fff,#ff8fb6,#d48cff,#fff);
+    background-size:300%;
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:gradientMove 6s linear infinite;
+}
+
+@keyframes gradientMove{
+    to{background-position:300%}
+}
+
+.hero h2{
+    font-size:clamp(22px,4vw,38px);
+    font-weight:400;
+}
+
+.hero p{
+    color:#bbb2bf;
+    margin:20px auto;
+    max-width:650px;
+    line-height:2;
+}
+
+.heroPhoto{
+    width:210px;
+    height:210px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid rgba(255,255,255,.12);
+    box-shadow:
+      0 0 50px rgba(255,70,140,.3),
+      0 0 120px rgba(140,50,255,.15);
+    margin:25px auto;
+    display:block;
+    animation:photoFloat 4s ease-in-out infinite;
+}
+
+@keyframes photoFloat{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-12px)}
+}
+
+/* =========================
+   SURPRISE GATE
+========================= */
+
+.surpriseGate{
+    display:none;
+    text-align:center;
+    padding:50px 20px;
+}
+
+.gift3d{
+    width:170px;
+    height:140px;
+    margin:25px auto;
+    position:relative;
+    cursor:pointer;
+    transform-style:preserve-3d;
+    animation:giftFloat 3s ease-in-out infinite;
+}
+
+@keyframes giftFloat{
+    0%,100%{transform:translateY(0) rotateY(-8deg)}
+    50%{transform:translateY(-15px) rotateY(8deg)}
+}
+
+.giftBody{
+    position:absolute;
+    bottom:0;
+    left:10px;
+    width:150px;
+    height:100px;
+    border-radius:10px;
+    background:linear-gradient(135deg,#ff2d73,#b51eff);
+    box-shadow:0 20px 40px rgba(255,30,110,.3);
+}
+
+.giftBody::after{
+    content:"";
+    position:absolute;
+    left:65px;
+    top:0;
+    width:22px;
+    height:100%;
+    background:#ffd35c;
+}
+
+.giftLid{
+    position:absolute;
+    top:20px;
+    left:0;
+    width:170px;
+    height:38px;
+    border-radius:10px;
+    background:linear-gradient(135deg,#ff477f,#ce32ff);
+    transform-origin:left bottom;
+    transition:1s;
+    z-index:3;
+}
+
+.giftBow{
+    position:absolute;
+    top:-10px;
+    left:62px;
+    width:45px;
+    height:35px;
+    z-index:5;
+}
+
+.giftBow::before,
+.giftBow::after{
+    content:"";
+    position:absolute;
+    width:40px;
+    height:28px;
+    border:8px solid #ffd35c;
+    border-radius:50%;
+}
+
+.giftBow::before{
+    left:-22px;
+    transform:rotate(25deg);
+}
+
+.giftBow::after{
+    right:-22px;
+    transform:rotate(-25deg);
+}
+
+.gift3d.open .giftLid{
+    transform:rotate(-35deg) translateY(-30px);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.sectionTitle{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.sectionTitle span{
+    color:#ff82aa;
+    font-size:14px;
+    letter-spacing:3px;
+}
+
+.sectionTitle h2{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(45px,7vw,70px);
+    font-weight:400;
+    margin-top:8px;
+}
+
+.card{
+    padding:35px;
+    border-radius:25px;
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,255,255,.1);
+    backdrop-filter:blur(18px);
+    box-shadow:0 25px 70px rgba(0,0,0,.25);
+}
+
+.letter{
+    max-width:850px;
+    margin:auto;
+    line-height:2.2;
+    color:#ddd5df;
+    font-size:17px;
+}
+
+.letter strong{
+    color:#ff8db2;
+}
+
+/* =========================
+   SPECIAL CARDS
+========================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.specialCard{
+    padding:30px;
+    border-radius:24px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.09);
+    transition:.4s;
+}
+
+.specialCard:hover{
+    transform:translateY(-8px);
+    background:rgba(255,255,255,.08);
+}
+
+.specialCard .icon{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.specialCard h3{
+    margin-bottom:10px;
+    color:#fff;
+}
+
+.specialCard p{
+    color:#bdb4c0;
+    line-height:1.9;
+}
+
+/* =========================
+   PHOTO GALLERY
+========================= */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.galleryItem{
+    position:relative;
+    overflow:hidden;
+    border-radius:25px;
+    border:1px solid rgba(255,255,255,.12);
+    background:#111;
+}
+
+.galleryItem img{
+    width:100%;
+    height:520px;
+    object-fit:cover;
+    display:block;
+    transition:.6s;
+}
+
+.galleryItem:hover img{
+    transform:scale(1.06);
+}
+
+.caption{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:30px 20px 20px;
+    background:linear-gradient(transparent,rgba(0,0,0,.9));
+    font-size:17px;
+}
+
+/* =========================
+   TWO COLUMN
+========================= */
+
+.twoColumn{
+    display:grid;
+    grid-template-columns:350px 1fr;
+    gap:45px;
+    align-items:center;
+}
+
+.profilePhoto{
+    width:100%;
+    max-height:500px;
+    object-fit:cover;
+    border-radius:28px;
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 25px 70px rgba(0,0,0,.4);
+}
+
+.sideText{
+    color:#d0c8d2;
+    line-height:2.1;
+    font-size:17px;
+}
+
+.sideText h3{
+    font-family:'Great Vibes',cursive;
+    font-size:50px;
+    color:#ff8bb1;
+    font-weight:400;
+    margin-bottom:15px;
+}
+
+/* =========================
+   QUOTE
+========================= */
+
+.quoteSection{
+    min-height:70vh;
+}
+
+.quote{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+}
+
+.quoteMark{
+    font-size:70px;
+    color:#ff679b;
+}
+
+.quote p{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(35px,6vw,62px);
+    line-height:1.4;
+}
+
+.quote small{
+    display:block;
+    margin-top:25px;
+    color:#aaa1ac;
+}
+
+/* =========================
+   SECRET LETTER
+========================= */
+
+.secretBox{
+    max-width:700px;
+    margin:auto;
+    text-align:center;
+}
+
+.secretContent{
+    display:none;
+    margin-top:30px;
+    padding:35px;
+    border-radius:25px;
+    background:rgba(255,80,140,.07);
+    border:1px solid rgba(255,100,150,.2);
+    line-height:2;
+    color:#ddd3dd;
+    animation:reveal .8s ease;
+}
+
+@keyframes reveal{
+    from{opacity:0;transform:translateY(20px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* =========================
+   MISS ME
+========================= */
+
+.envelope{
+    max-width:650px;
+    margin:auto;
+    text-align:center;
+}
+
+.envelopeIcon{
+    font-size:100px;
+    cursor:pointer;
+    display:inline-block;
+    animation:envelopeFloat 3s infinite ease-in-out;
+}
+
+@keyframes envelopeFloat{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-12px)}
+}
+
+.missMessage{
+    display:none;
+    margin-top:25px;
+    line-height:2;
+    color:#d8cfd9;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.finalSection{
+    min-height:100vh;
+    text-align:center;
+    overflow:hidden;
+}
+
+.finalSection h1{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(60px,12vw,130px);
+    background:linear-gradient(90deg,#fff,#ff73a7,#c874ff,#fff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.finalPhotoRow{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+    margin:35px 0;
+}
+
+.finalPhotoRow img{
+    width:120px;
+    height:120px;
+    object-fit:cover;
+    border-radius:50%;
+    border:3px solid rgba(255,255,255,.15);
+}
+
+.finalPhotoRow img:nth-child(2){
+    width:155px;
+    height:155px;
+}
+
+.finalText{
+    color:#c7bdca;
+    line-height:2;
+}
+
+.signature{
+    margin-top:30px;
+    font-family:'Great Vibes',cursive;
+    font-size:45px;
+    color:#ff85ad;
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti{
+    position:fixed;
+    width:8px;
+    height:14px;
+    top:-20px;
+    z-index:10000;
+    pointer-events:none;
+    animation:confettiFall 4s linear forwards;
+}
+
+@keyframes confettiFall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+    }
+}
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.musicButton{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(20,15,25,.8);
+    color:white;
+    cursor:pointer;
+    z-index:100;
+    backdrop-filter:blur(10px);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:750px){
+
+    section{
+        padding:80px 16px;
+    }
+
+    .grid,
+    .gallery,
+    .twoColumn{
+        grid-template-columns:1fr;
+    }
+
+    .galleryItem img{
+        height:480px;
+    }
+
+    .twoColumn{
+        gap:25px;
+    }
+
+    .profilePhoto{
+        max-height:550px;
+    }
+
+    .card{
+        padding:25px 20px;
+    }
+
+    .finalPhotoRow img{
+        width:85px;
+        height:85px;
+    }
+
+    .finalPhotoRow img:nth-child(2){
+        width:110px;
+        height:110px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     STARS
+========================= -->
+
+<div class="stars" id="stars"></div>
+
+<!-- =========================
+     PASSWORD SCREEN
+========================= -->
+
+<div id="lockScreen">
+
+    <div class="lockBox">
+
+        <div class="lockIcon">🔐</div>
+
+        <h1>Hey Sanjida… ❤️</h1>
+
+        <p>
+            Someone made a little surprise<br>
+            especially for you. 🌸<br><br>
+            But first…<br>
+            <strong>Enter the secret password.</strong>
+        </p>
+
+        <input
+            id="password"
+            class="passwordInput"
+            type="password"
+            maxlength="5"
+            placeholder="•••••"
+        >
+
+        <div class="error" id="error"></div>
+
+        <button class="mainBtn" onclick="unlock()">
+            🔓 Unlock My Surprise
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     WEBSITE
+========================= -->
+
+<div id="website">
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="container heroContent">
+
+        <div class="smallText">
+            A little surprise made with ❤️
+        </div>
+
+        <h1>Sanjida</h1>
+
+        <h2>🎂 Happy Birthday</h2>
+
+        <img
+            src="images/sanjida-1.jpg"
+            class="heroPhoto"
+            alt="Sanjida"
+        >
+
+        <p>
+            Today isn't just another day…<br>
+            It's the day someone very special came into this world. 🌸
+        </p>
+
+        <button class="mainBtn" onclick="showFirstSurprise()">
+            ✨ Start The Surprise
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SURPRISE 1
+========================= -->
+
+<section id="surprise1">
+
+    <div class="container">
+
+        <div class="surpriseGate" id="gate1">
+
+            <div class="sectionTitle">
+                <span>FIRST SURPRISE</span>
+                <h2>Something is waiting for you… 🎁</h2>
+            </div>
+
+            <p style="color:#aaa;margin-bottom:10px;">
+                Open the gift to continue.
+            </p>
+
+            <div class="gift3d" onclick="openSurprise(1)">
+                <div class="giftBow"></div>
+                <div class="giftLid"></div>
+                <div class="giftBody"></div>
+            </div>
+
+            <p id="giftText1">
+                Tap the gift 🎁
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LETTER
+========================= -->
+
+<section id="letterSection" style="display:none;">
+
+    <div class="container">
+
+        <div class="sectionTitle">
+            <span>FOR YOU 💌</span>
+            <h2>A Little Letter</h2>
+        </div>
+
+        <div class="card letter">
+
+            <p>
+                <strong>Dear Sanjida,</strong>
+            </p>
+
+            <br>
+
+            <p>
+                হয়তো আমাদের এখনো সামনাসামনি দেখা হয়নি…
+                আমাদের গল্পটাও একটু অন্যরকম।
+                কথা হয়েছে, ভিডিও কলে একে অপরকে দেখেছি,
+                আর সেই কথার মাঝেই তৈরি হয়েছে কিছু সুন্দর মুহূর্ত।
+            </p>
+
+            <br>
+
+            <p>
+                কিছু মানুষকে কাছে অনুভব করার জন্য
+                সবসময় পাশে থাকা লাগে না।
+                কখনো কখনো কিছু কথা,
+                কিছু হাসি আর কিছু ছোট ছোট মুহূর্তই
+                একজন মানুষকে বিশেষ করে তোলে। ❤️
+            </p>
+
+            <br>
+
+            <p>
+                আজ তোমার জন্মদিনে আমার একটাই চাওয়া—
+                <strong>তুমি সবসময় ভালো থেকো,
+                হাসিখুশি থেকো এবং তোমার সব সুন্দর স্বপ্ন পূরণ হোক।</strong>
+            </p>
+
+            <br>
+
+            <p style="text-align:center;">
+                Happy Birthday, Sanjida. 🎂❤️
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SURPRISE 2
+========================= -->
+
+<section id="surprise2">
+
+    <div class="container">
+
+        <div class="surpriseGate" id="gate2">
+
+            <div class="sectionTitle">
+                <span>SECOND SURPRISE</span>
+                <h2>Want to know something? ❤️</h2>
+            </div>
+
+            <div class="gift3d" onclick="openSurprise(2)">
+                <div class="giftBow"></div>
+                <div class="giftLid"></div>
+                <div class="giftBody"></div>
+            </div>
+
+            <p>Open the next surprise 🎁</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WHY SPECIAL
+========================= -->
+
+<section id="specialSection" style="display:none;">
+
+    <div class="container">
+
+        <div class="sectionTitle">
+            <span>JUST FOR YOU</span>
+            <h2>Why You Are Special ❤️</h2>
+        </div>
+
+        <div class="grid">
+
+            <div class="specialCard">
+                <div class="icon">🌸</div>
+                <h3>Your Smile</h3>
+                <p>
+                    তোমার হাসিটা হয়তো তোমার কাছে সাধারণ,
+                    কিন্তু কারও কারও কাছে সেটা
+                    পুরো একটা দিনের ভালো লাগা।
+                </p>
+            </div>
+
+            <div class="specialCard">
+                <div class="icon">🫶</div>
+                <h3>Your Way of Talking</h3>
+                <p>
+                    তোমার সাথে কথা বলার মধ্যে
+                    একটা আলাদা অনুভূতি আছে।
+                    কিছু কথা অজান্তেই মনে থেকে যায়।
+                </p>
+            </div>
+
+            <div class="specialCard">
+                <div class="icon">✨</div>
+                <h3>Your Personality</h3>
+                <p>
+                    তোমাকে সুন্দর করে তোলার জন্য
+                    আলাদা কোনো কারণের প্রয়োজন নেই।
+                    তুমি যেমন, ঠিক তেমনটাই সুন্দর।
+                </p>
+            </div>
+
+            <div class="specialCard">
+                <div class="icon">💖</div>
+                <h3>Simply You</h3>
+                <p>
+                    কিছু মানুষকে ব্যাখ্যা করা যায় না।
+                    শুধু অনুভব করা যায়।
+                    তুমি হয়তো তেমনই একজন।
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SURPRISE 3
+========================= -->
+
+<section id="surprise3">
+
+    <div class="container">
+
+        <div class="surpriseGate" id="gate3">
+
+            <div class="sectionTitle">
+                <span>ONE MORE</span>
+                <h2>There's something else… 🌸</h2>
+            </div>
+
+            <div class="gift3d" onclick="openSurprise(3)">
+                <div class="giftBow"></div>
+                <div class="giftLid"></div>
+                <div class="giftBody"></div>
+            </div>
+
+            <p>Open it slowly… 🎁</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     QUALITIES
+========================= -->
+
+<section id="qualitiesSection" style="display:none;">
+
+    <div cl
